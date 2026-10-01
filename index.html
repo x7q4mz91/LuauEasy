@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Luau Playground</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="file-area">
+          <nav id="file-tabs" class="file-tabs" aria-label="Open files"></nav>
+          <button id="new-file" class="icon-button new-file" type="button" aria-label="New file" title="New file">+</button>
+        </div>
+        <div class="toolbar-actions">
+          <button id="settings-button" class="icon-button" type="button" aria-label="Editor settings" title="Editor settings">⚙</button>
+          <button id="theme-button" class="icon-button theme-button" type="button" aria-label="Switch to dark mode" title="Switch theme">◐</button>
+          <span class="toolbar-divider" aria-hidden="true"></span>
+          <button id="bytecode-button" class="toolbar-button" type="button">Bytecode</button>
+          <button id="share-button" class="toolbar-button" type="button">Share</button>
+          <button id="embed-button" class="toolbar-button" type="button">Embed</button>
+          <button id="check-button" class="toolbar-button" type="button">Check</button>
+          <button id="run-button" class="run-button" type="button"><span class="play-icon" aria-hidden="true"></span><span id="run-label">Run</span></button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <div id="editor" class="editor-wrap" aria-label="Luau code editor"></div>
+        <section id="output-panel" class="output-panel" aria-label="Program output">
+          <div class="output-heading">
+            <button id="output-toggle" class="output-toggle" type="button" aria-label="Collapse output" aria-expanded="true"><span aria-hidden="true">⌄</span></button>
+            <span>Output</span>
+            <span id="run-state" class="run-state" role="status" aria-live="polite" hidden></span>
+            <button id="clear-output" class="quiet-button" type="button">Clear</button>
+          </div>
+          <div id="output" class="output-content" role="log" aria-live="polite">
+            <p class="empty-state">Run your code to see output here...</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="settings-dialog" class="modal">
+      <form method="dialog" class="modal-content">
+        <div class="modal-heading"><h2>Settings</h2><button class="modal-close" aria-label="Close">×</button></div>
+        <label class="setting-row"><input id="line-wrap" type="checkbox" /> Wrap long lines</label>
+      </form>
+    </dialog>
+    <dialog id="embed-dialog" class="modal">
+      <form method="dialog" class="modal-content">
+        <div class="modal-heading"><h2>Embed</h2><button class="modal-close" aria-label="Close">×</button></div>
+        <textarea id="embed-code" rows="4" readonly aria-label="Embed code"></textarea>
+        <button id="copy-embed" class="dialog-action" type="button">Copy</button>
+      </form>
+    </dialog>
+    <dialog id="bytecode-dialog" class="modal">
+      <form method="dialog" class="modal-content">
+        <div class="modal-heading"><h2>Bytecode</h2><button class="modal-close" aria-label="Close">×</button></div>
+        <p>Bytecode export is not exposed by this runtime.</p>
+      </form>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
