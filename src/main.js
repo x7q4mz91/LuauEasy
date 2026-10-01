@@ -248,7 +248,7 @@ document.querySelector("#bytecode-button").addEventListener("click", () => docum
 document.querySelector("#share-button").addEventListener("click", (event) => copyToClipboard(shareUrl(), event.currentTarget, "Copied"));
 document.querySelector("#embed-button").addEventListener("click", () => {
   const url = shareUrl().replaceAll("&", "&amp;").replaceAll('"', "&quot;");
-  document.querySelector("#embed-code").value = `<iframe src="${url}" title="Luau playground" width="100%" height="600"></iframe>`;
+  document.querySelector("#embed-code").value = `<iframe src="${url}" title="LuauEasy" width="100%" height="600"></iframe>`;
   document.querySelector("#embed-dialog").showModal();
 });
 document.querySelector("#copy-embed").addEventListener("click", (event) => copyToClipboard(document.querySelector("#embed-code").value, event.currentTarget, "Copied"));
