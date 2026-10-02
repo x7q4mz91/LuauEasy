@@ -141,7 +141,10 @@ button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px
 .documentation-layout { display: grid; min-height: 0; flex: 1; grid-template-columns: 210px minmax(0, 1fr); overflow: hidden; }
 .documentation-sidebar { padding: 25px 13px; border-right: 1px solid var(--line); background: var(--toolbar); }
 .sidebar-heading { margin: 0 0 14px 10px; color: var(--muted); font-size: 11px; font-weight: 600; }
-.lesson-nav-link { display: block; padding: 9px 10px; border-left: 2px solid var(--accent); background: var(--hover); color: var(--text); font-size: 12px; text-decoration: none; }
+.lesson-navigation { display: grid; gap: 2px; }
+.lesson-nav-link { display: block; width: 100%; padding: 9px 10px; border: 0; border-left: 2px solid transparent; background: transparent; color: var(--muted); font-size: 12px; text-align: left; cursor: pointer; }
+.lesson-nav-link[aria-current="step"] { border-left-color: var(--accent); background: var(--hover); color: var(--text); }
+.lesson-nav-link:hover:not([aria-current="step"]) { background: var(--hover); color: var(--text); }
 .documentation-main { display: grid; min-width: 0; min-height: 0; grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr); gap: clamp(24px, 4vw, 64px); overflow: auto; padding: clamp(24px, 4vw, 54px); }
 .lesson-content { max-width: 590px; }
 .lesson-number { margin: 0 0 8px; color: var(--accent); font: 12px "DM Mono", monospace; }
@@ -186,7 +189,9 @@ button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px
   .documentation-layout { grid-template-columns: 1fr; grid-template-rows: 42px minmax(0, 1fr); }
   .documentation-sidebar { display: flex; align-items: center; gap: 10px; overflow: auto; padding: 0 10px; border-right: 0; border-bottom: 1px solid var(--line); }
   .sidebar-heading { flex: 0 0 auto; margin: 0; }
-  .lesson-nav-link { flex: 0 0 auto; padding: 7px 9px; }
+  .lesson-navigation { display: flex; min-width: 0; gap: 3px; overflow-x: auto; }
+  .lesson-nav-link { width: auto; flex: 0 0 auto; padding: 7px 9px; border: 0; border-bottom: 2px solid transparent; }
+  .lesson-nav-link[aria-current="step"] { border-bottom-color: var(--accent); }
   .documentation-main { grid-template-columns: minmax(0, 1fr); gap: 25px; padding: 24px 16px 40px; }
   .lesson-content h1 { font-size: 26px; }
   .documentation-editor { height: 230px; }
