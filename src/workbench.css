@@ -53,6 +53,7 @@ button { color: inherit; }
 button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .app-shell { display: flex; width: 100%; height: 100dvh; flex-direction: column; overflow: hidden; background: var(--canvas); }
+.app-shell.app-hidden { display: none; }
 .topbar { z-index: 1; display: flex; height: 44px; flex: 0 0 44px; align-items: stretch; justify-content: space-between; border-bottom: 1px solid var(--line); background: var(--toolbar); }
 .file-area { display: flex; min-width: 0; align-items: stretch; }
 .file-tabs { display: flex; min-width: 0; align-items: stretch; overflow-x: auto; }
@@ -128,6 +129,50 @@ button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px
 .modal-content p { margin: 0; color: var(--muted); font-size: 13px; }
 .dialog-action { justify-self: end; min-width: 68px; height: 30px; border: 0; border-radius: 4px; background: var(--accent); color: var(--accent-text); font-size: 12px; cursor: pointer; }
 
+.documentation-app { display: flex; width: 100%; height: 100dvh; flex-direction: column; overflow: hidden; background: var(--canvas); color: var(--text); }
+.documentation-app[hidden] { display: none; }
+.documentation-header { display: flex; height: 46px; flex: 0 0 46px; align-items: center; gap: 16px; padding: 0 18px; border-bottom: 1px solid var(--line); background: var(--toolbar); }
+.docs-editor-link { color: var(--muted); font-size: 12px; text-decoration: none; }
+.docs-editor-link:hover { color: var(--text); }
+.docs-brand { font-size: 13px; font-weight: 700; }
+.docs-header-title { color: var(--muted); font-size: 12px; }
+.docs-header-title::before { margin-right: 15px; color: var(--line); content: "/"; }
+.documentation-header .theme-button { margin-left: auto; }
+.documentation-layout { display: grid; min-height: 0; flex: 1; grid-template-columns: 210px minmax(0, 1fr); overflow: hidden; }
+.documentation-sidebar { padding: 25px 13px; border-right: 1px solid var(--line); background: var(--toolbar); }
+.sidebar-heading { margin: 0 0 14px 10px; color: var(--muted); font-size: 11px; font-weight: 600; }
+.lesson-nav-link { display: block; padding: 9px 10px; border-left: 2px solid var(--accent); background: var(--hover); color: var(--text); font-size: 12px; text-decoration: none; }
+.documentation-main { display: grid; min-width: 0; min-height: 0; grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr); gap: clamp(24px, 4vw, 64px); overflow: auto; padding: clamp(24px, 4vw, 54px); }
+.lesson-content { max-width: 590px; }
+.lesson-number { margin: 0 0 8px; color: var(--accent); font: 12px "DM Mono", monospace; }
+.lesson-content h1 { margin: 0 0 13px; font-size: 30px; letter-spacing: 0; }
+.lesson-lead { margin: 0 0 29px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.lesson-content code, .knowledge-check code { padding: 1px 4px; border: 1px solid var(--line); border-radius: 3px; background: var(--toolbar); color: var(--text); font: 12px "DM Mono", monospace; }
+.lesson-section { margin: 0 0 22px; }
+.lesson-section h2, .knowledge-check h2 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+.lesson-section p, .knowledge-check p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.knowledge-check { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--line); }
+.knowledge-check > p { margin-top: 7px; }
+.answer-options { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.answer-options button { min-width: 52px; height: 32px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--canvas); color: var(--text); font: 12px "DM Mono", monospace; cursor: pointer; }
+.answer-options button:hover { border-color: var(--accent); }
+.answer-feedback { min-height: 21px; margin-top: 9px !important; font-size: 12px !important; }
+.answer-feedback[data-correct="true"] { color: #248052; }
+.answer-feedback[data-correct="false"] { color: #b5801a; }
+.practice-panel { display: flex; min-width: 0; align-self: start; flex-direction: column; border: 1px solid var(--line); background: var(--canvas); }
+.practice-heading { display: flex; min-height: 45px; align-items: center; justify-content: space-between; gap: 8px; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--toolbar); }
+.practice-heading h2 { margin: 0; font-size: 13px; font-weight: 600; }
+.example-tabs { display: flex; align-items: center; gap: 2px; }
+.example-tabs button { height: 27px; padding: 0 9px; border: 0; border-radius: 3px; background: transparent; color: var(--muted); font-size: 11px; cursor: pointer; }
+.example-tabs button[aria-selected="true"] { background: var(--canvas); color: var(--text); box-shadow: 0 0 0 1px var(--line); }
+.example-description { min-height: 37px; margin: 0; padding: 10px 13px 6px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.documentation-editor { height: 260px; min-height: 160px; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.documentation-editor .cm-editor { font-size: 12px; }
+.practice-actions { display: flex; min-height: 46px; align-items: center; gap: 10px; padding: 0 12px; }
+.practice-actions .run-button { height: 29px; padding: 0 11px; }
+.example-status { color: var(--muted); font: 11px "DM Mono", monospace; }
+.example-output { min-height: 78px; max-height: 150px; overflow: auto; padding: 9px 12px; border-top: 1px solid var(--line); background: var(--output); color: var(--text); font: 12px/1.65 "DM Mono", monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+
 @media (max-width: 620px) {
   .topbar { height: 78px; flex: 0 0 78px; flex-wrap: wrap; }
   .file-area { width: 100%; height: 36px; flex: 0 0 36px; }
@@ -137,6 +182,14 @@ button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px
   .toolbar-divider { margin: 0 1px; }
   .run-button { height: 30px; padding: 0 9px; }
   .output-panel { height: 30vh; min-height: 140px; }
+  .documentation-header { gap: 10px; padding: 0 10px; }
+  .documentation-layout { grid-template-columns: 1fr; grid-template-rows: 42px minmax(0, 1fr); }
+  .documentation-sidebar { display: flex; align-items: center; gap: 10px; overflow: auto; padding: 0 10px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .sidebar-heading { flex: 0 0 auto; margin: 0; }
+  .lesson-nav-link { flex: 0 0 auto; padding: 7px 9px; }
+  .documentation-main { grid-template-columns: minmax(0, 1fr); gap: 25px; padding: 24px 16px 40px; }
+  .lesson-content h1 { font-size: 26px; }
+  .documentation-editor { height: 230px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -4,6 +4,7 @@ import { lua } from "@codemirror/legacy-modes/mode/lua";
 import { Compartment, EditorState } from "@codemirror/state";
 import { keymap } from "@codemirror/view";
 import "./workbench.css";
+import "./documentation.js";
 
 const starterCode = `local message = "Hello, Luau!"
 print(message)`;

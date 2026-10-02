@@ -12,6 +12,7 @@
         <div class="file-area">
           <nav id="file-tabs" class="file-tabs" aria-label="Open files"></nav>
           <button id="new-file" class="icon-button new-file" type="button" aria-label="New file" title="New file">+</button>
+          <a class="toolbar-button documentation-link" href="./documentation">Documentations</a>
         </div>
         <div class="toolbar-actions">
           <button id="settings-button" class="icon-button" type="button" aria-label="Editor settings" title="Editor settings">⚙</button>
@@ -39,6 +40,72 @@
           </div>
         </section>
       </main>
+    </div>
+
+    <div id="documentation-app" class="documentation-app" hidden>
+      <header class="documentation-header">
+        <a class="docs-editor-link" href="../">‹ Editor</a>
+        <span class="docs-brand">LuauEasy</span>
+        <span class="docs-header-title">Documentations</span>
+        <button id="docs-theme" class="icon-button theme-button" type="button" aria-label="Switch theme" title="Switch theme">◐</button>
+      </header>
+      <div class="documentation-layout">
+        <aside class="documentation-sidebar">
+          <p class="sidebar-heading">Documentations</p>
+          <a class="lesson-nav-link" href="#basics" aria-current="page">1.1 The basics</a>
+        </aside>
+        <main class="documentation-main">
+          <article class="lesson-content" id="basics">
+            <p class="lesson-number">1.1</p>
+            <h1>The basics</h1>
+            <p class="lesson-lead">Luau reads your script from top to bottom. Use <code>print()</code> to show a value in the output.</p>
+
+            <section class="lesson-section">
+              <h2>Values</h2>
+              <p>Text goes inside quotes. Numbers can be calculated. A boolean is either <code>true</code> or <code>false</code>.</p>
+            </section>
+            <section class="lesson-section">
+              <h2>Variables</h2>
+              <p>Use <code>local</code> to give a value a name. You can use that name later in the script.</p>
+            </section>
+            <section class="lesson-section">
+              <h2>Comments</h2>
+              <p>Start a comment with <code>--</code>. Luau skips it when your script runs.</p>
+            </section>
+
+            <section class="knowledge-check" aria-labelledby="knowledge-title">
+              <h2 id="knowledge-title">Quick check</h2>
+              <p>What does <code>print(2 + 3)</code> show?</p>
+              <div class="answer-options">
+                <button type="button" data-answer="5">5</button>
+                <button type="button" data-answer="23">23</button>
+                <button type="button" data-answer="2 + 3">2 + 3</button>
+              </div>
+              <p id="answer-feedback" class="answer-feedback" role="status" aria-live="polite"></p>
+            </section>
+          </article>
+
+          <section class="practice-panel" aria-labelledby="practice-title">
+            <div class="practice-heading">
+              <h2 id="practice-title">Try it</h2>
+              <div class="example-tabs" role="tablist" aria-label="Basics examples">
+                <button type="button" role="tab" aria-selected="true" data-example="output">Output</button>
+                <button type="button" role="tab" aria-selected="false" data-example="math">Math</button>
+                <button type="button" role="tab" aria-selected="false" data-example="variables">Variables</button>
+              </div>
+            </div>
+            <p id="example-description" class="example-description">Print shows text or a value in the output below.</p>
+            <div id="documentation-editor" class="documentation-editor" aria-label="Interactive Luau example"></div>
+            <div class="practice-actions">
+              <button id="run-example" class="run-button" type="button"><span class="play-icon" aria-hidden="true"></span><span>Run</span></button>
+              <span id="example-status" class="example-status" role="status" aria-live="polite"></span>
+            </div>
+            <div id="example-output" class="example-output" role="log" aria-live="polite">
+              <p class="empty-state">Output</p>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
 
     <dialog id="settings-dialog" class="modal">
