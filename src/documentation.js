@@ -16,14 +16,14 @@ const lessons = [
   },
   {
     number: "1.2",
-    title: "Values",
-    explanation: "Text in quotes is a string. Numbers and true/false are values too.",
+    title: "Text and numbers",
+    explanation: 'Quotes tell Luau that "blue" is text. print() shows the text without its quotes.',
     examples: [
-      { label: "Text", description: "Quotes make this value a string.", code: 'print("blue")' },
-      { label: "Number", description: "Numbers can be printed without quotes.", code: "print(12)" },
-      { label: "Boolean", description: "Booleans have only two values: true or false.", code: "print(true)\nprint(false)" },
+      { label: "Text", description: 'The quotes mark "blue" as text. Output shows blue.', code: 'print("blue")' },
+      { label: "Number", description: "Without quotes, 12 is a number.", code: "print(12)" },
+      { label: "Compare", description: 'Both lines show 12, but only the first value is text.', code: 'print("12")\nprint(12)' },
     ],
-    check: { question: "Which value is text?", options: ["8", "\"8\"", "true"], answer: 1, feedback: "Quotes mark the string \"8\" as text." },
+    check: { question: 'When print("blue") runs, what appears in Output?', options: ["blue", '"blue"'], answer: 0, feedback: '"blue" is text in the code. print() shows blue without the quotes.' },
   },
   {
     number: "1.3",
